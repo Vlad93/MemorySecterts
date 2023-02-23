@@ -233,7 +233,7 @@
     container.append(gameTitle);
 
     // объявляем таймер
-    const timer = createTimer(10);
+    const timer = createTimer(60);
 
     // объявляем и добавляем форму на страницу
     const formObj = createNewGameForm();
