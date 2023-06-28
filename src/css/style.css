@@ -139,12 +139,14 @@ body {
 .cards__item {
   position: relative;
   display: block;
+  min-height: 120px;
   height: 100%;
+  border-radius: 2px;
   grid-column: auto / span 1;
   grid-row: auto / span 1;
 }
 
-.cards__btn, .cards__number {
+.cards__btn, .cards__number, .cards__img {
   position: absolute;
   top: 0;
   left: 0;
@@ -162,8 +164,14 @@ body {
 }
 
 .cards__btn {
+  z-index: 1;
   transform: perspective(600px) rotateY(0deg);
   background:url('../img/card-bg.png') no-repeat center / calc(100% - 10px) calc(100% - 10px),  #fff;
+}
+
+.cards__item.success .cards__number,
+.cards__item.success .cards__img {
+  border-color: var(--success);
 }
 
 .cards__btn:focus {
@@ -181,10 +189,19 @@ body {
   white-space: nowrap;
 }
 
-.cards__item.flip > .cards__btn{
+.cards__img {
+  width: 100%;
+  height: 100%;
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.cards__item.flip > .cards__btn {
   transform: perspective(600px) rotateY(-180deg);
 }
-.cards__item.flip > .cards__number{
+.cards__item.flip > .cards__number {
+  transform: perspective(600px) rotateY(0deg);
+}
+.cards__item.flip > .cards__img {
   transform: perspective(600px) rotateY(0deg);
 }
 
